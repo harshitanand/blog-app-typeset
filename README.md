@@ -1,7 +1,7 @@
 # Blog Application
 Blog Application written using Loopback Framework
 
-![Code Preview](https://raw.githubusercontent.com/harshitanand/Scrape-Service/master/img/2.png)
+![Code Preview](https://raw.githubusercontent.com/harshitanand/blog-app-typeset/master/codeEnv.png)
 
 ## Prerequisities
 Just run following command to begin 
