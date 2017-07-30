@@ -13,7 +13,7 @@ cd blog-app-typeset && yarn && bower install angular angular-resource angular-ui
 ## Running and Viewing results
 
 ```
-node .  OR yarn start
+node .     OR     yarn start
 ```
 Veiwing API responses
 

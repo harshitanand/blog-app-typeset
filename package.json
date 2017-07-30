@@ -46,6 +46,7 @@
     "type": "",
     "url": ""
   },
-  "license": "UNLICENSED",
-  "description": "typeset-task"
+  "license": "MIT",
+  "description": "typeset-task",
+  "author": "Harshit Anand <harshitanand94@gmail.com>"
 }
