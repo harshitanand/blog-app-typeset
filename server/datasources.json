@@ -1,0 +1,8 @@
+{
+  "memoryDs": {
+    "name": "memoryDs",
+    "localStorage": "data.json",
+    "file": "res.json",
+    "connector": "memory"
+  }
+}
