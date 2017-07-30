@@ -1,0 +1,25 @@
+{
+  "name": "BlogPost",
+  "plural": "BlogPosts",
+  "base": "GenericModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "title": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "postContents": {
+      "type": "hasMany",
+      "model": "PostContent",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
