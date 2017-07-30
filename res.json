@@ -1,0 +1,46 @@
+{
+  "ids": {
+    "GenericModel": 1,
+    "BlogPost": 4,
+    "BlogContent": 3,
+    "ContentComment": 22,
+    "PostContent": 9
+  },
+  "models": {
+    "GenericModel": {},
+    "BlogPost": {
+      "2": "{\"title\":\"Blog Post One\",\"createdAt\":\"2017-07-30T20:49:17.184Z\",\"updatedAt\":\"2017-07-30T20:49:54.400Z\",\"id\":2}",
+      "3": "{\"title\":\"Blog Post Two\",\"createdAt\":\"2017-07-30T20:57:50.949Z\",\"updatedAt\":\"2017-07-30T20:59:35.516Z\",\"id\":3}"
+    },
+    "ContentComment": {
+      "4": "{\"comment\":\"first comment\",\"createdAt\":\"2017-07-30T20:49:17.439Z\",\"updatedAt\":\"2017-07-30T20:53:06.042Z\",\"postContentId\":1,\"id\":4}",
+      "5": "{\"comment\":\"second comment\",\"createdAt\":\"2017-07-30T20:49:17.439Z\",\"updatedAt\":\"2017-07-30T20:53:14.917Z\",\"postContentId\":1,\"id\":5}",
+      "6": "{\"comment\":\"third comment\",\"createdAt\":\"2017-07-30T20:49:17.439Z\",\"updatedAt\":\"2017-07-30T20:53:22.665Z\",\"postContentId\":1,\"id\":6}",
+      "7": "{\"comment\":\"third comment\",\"createdAt\":\"2017-07-30T20:49:17.439Z\",\"updatedAt\":\"2017-07-30T20:53:38.764Z\",\"postContentId\":2,\"id\":7}",
+      "8": "{\"comment\":\"second comment\",\"createdAt\":\"2017-07-30T20:49:17.439Z\",\"updatedAt\":\"2017-07-30T20:53:50.140Z\",\"postContentId\":2,\"id\":8}",
+      "9": "{\"comment\":\"first comment\",\"createdAt\":\"2017-07-30T20:49:17.439Z\",\"updatedAt\":\"2017-07-30T20:54:00.128Z\",\"postContentId\":2,\"id\":9}",
+      "10": "{\"comment\":\"first comment\",\"createdAt\":\"2017-07-30T20:57:51.115Z\",\"updatedAt\":\"2017-07-30T21:03:25.588Z\",\"postContentId\":5,\"id\":10}",
+      "11": "{\"comment\":\"first comment\",\"createdAt\":\"2017-07-30T20:57:51.115Z\",\"updatedAt\":\"2017-07-30T21:03:30.102Z\",\"postContentId\":6,\"id\":11}",
+      "12": "{\"comment\":\"first comment\",\"createdAt\":\"2017-07-30T20:57:51.115Z\",\"updatedAt\":\"2017-07-30T21:03:34.071Z\",\"postContentId\":7,\"id\":12}",
+      "13": "{\"comment\":\"first comment\",\"createdAt\":\"2017-07-30T20:57:51.115Z\",\"updatedAt\":\"2017-07-30T21:03:37.691Z\",\"postContentId\":8,\"id\":13}",
+      "14": "{\"comment\":\"second comment\",\"createdAt\":\"2017-07-30T20:57:51.115Z\",\"updatedAt\":\"2017-07-30T21:03:46.365Z\",\"postContentId\":8,\"id\":14}",
+      "15": "{\"comment\":\"second comment\",\"createdAt\":\"2017-07-30T20:57:51.115Z\",\"updatedAt\":\"2017-07-30T21:03:49.908Z\",\"postContentId\":7,\"id\":15}",
+      "16": "{\"comment\":\"second comment\",\"createdAt\":\"2017-07-30T20:57:51.115Z\",\"updatedAt\":\"2017-07-30T21:03:56.179Z\",\"postContentId\":6,\"id\":16}",
+      "17": "{\"comment\":\"second comment\",\"createdAt\":\"2017-07-30T20:57:51.115Z\",\"updatedAt\":\"2017-07-30T21:03:59.715Z\",\"postContentId\":5,\"id\":17}",
+      "18": "{\"comment\":\"third comment\",\"createdAt\":\"2017-07-30T20:57:51.115Z\",\"updatedAt\":\"2017-07-30T21:04:07.885Z\",\"postContentId\":5,\"id\":18}",
+      "19": "{\"comment\":\"third comment\",\"createdAt\":\"2017-07-30T20:57:51.115Z\",\"updatedAt\":\"2017-07-30T21:04:11.783Z\",\"postContentId\":6,\"id\":19}",
+      "20": "{\"comment\":\"third comment\",\"createdAt\":\"2017-07-30T20:57:51.115Z\",\"updatedAt\":\"2017-07-30T21:04:16.474Z\",\"postContentId\":7,\"id\":20}",
+      "21": "{\"comment\":\"third comment\",\"createdAt\":\"2017-07-30T20:57:51.115Z\",\"updatedAt\":\"2017-07-30T21:04:21.035Z\",\"postContentId\":8,\"id\":21}"
+    },
+    "PostContent": {
+      "1": "{\"message\":{\"data\":\"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem deleniti quae, neque libero voluptate maiores ullam unde voluptatem assumenda velit dolores impedit quis qui! Neque, cupiditate labore nulla? Atque, tenetur.\"},\"priority\":1,\"createdAt\":\"2017-07-30T20:49:17.562Z\",\"updatedAt\":\"2017-07-30T20:50:54.313Z\",\"blogPostId\":2,\"id\":1}",
+      "2": "{\"message\":{\"data\":\"Numquam nobis nam voluptas blanditiis eveniet in quasi possimus voluptatem temporibus doloremque delectus dolorum, voluptatum laborum aut dolorem? In rerum necessitatibus soluta incidunt nihil numquam fugit quas pariatur dolores nesciunt?\"},\"priority\":2,\"createdAt\":\"2017-07-30T20:49:17.562Z\",\"updatedAt\":\"2017-07-30T20:51:27.283Z\",\"blogPostId\":2,\"id\":2}",
+      "3": "{\"message\":{\"data\":\"Quibusdam placeat quisquam iure repellendus ad in, nihil numquam quaerat, facere alias illo. Tempora perferendis incidunt, ratione eveniet esse earum, corporis sit? Modi enim commodi odio placeat minus, error id?\"},\"priority\":3,\"createdAt\":\"2017-07-30T20:49:17.562Z\",\"updatedAt\":\"2017-07-30T20:51:57.182Z\",\"blogPostId\":2,\"id\":3}",
+      "4": "{\"message\":{\"data\":\"Corrupti voluptates asperiores ratione laudantium, eveniet molestiae possimus deleniti officia, incidunt quae et. Amet, ducimus eum ipsa reprehenderit ad, et nihil, veritatis ea doloremque ab placeat dolore impedit, quia eius.\"},\"priority\":4,\"createdAt\":\"2017-07-30T20:49:17.562Z\",\"updatedAt\":\"2017-07-30T20:52:24.835Z\",\"blogPostId\":2,\"id\":4}",
+      "5": "{\"message\":{\"data\":\"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem deleniti quae, neque libero voluptate maiores ullam unde voluptatem assumenda velit dolores impedit quis qui! Neque, cupiditate labore nulla? Atque, tenetur.\"},\"priority\":1,\"createdAt\":\"2017-07-30T20:57:51.248Z\",\"updatedAt\":\"2017-07-30T21:00:22.094Z\",\"blogPostId\":3,\"id\":5}",
+      "6": "{\"message\":{\"data\":\"Numquam nobis nam voluptas blanditiis eveniet in quasi possimus voluptatem temporibus doloremque delectus dolorum, voluptatum laborum aut dolorem? In rerum necessitatibus soluta incidunt nihil numquam fugit quas pariatur dolores nesciunt?\"},\"priority\":2,\"createdAt\":\"2017-07-30T20:57:51.248Z\",\"updatedAt\":\"2017-07-30T21:00:44.432Z\",\"blogPostId\":3,\"id\":6}",
+      "7": "{\"message\":{\"data\":\"Quibusdam placeat quisquam iure repellendus ad in, nihil numquam quaerat, facere alias illo. Tempora perferendis incidunt, ratione eveniet esse earum, corporis sit? Modi enim commodi odio placeat minus, error id?\"},\"priority\":3,\"createdAt\":\"2017-07-30T20:57:51.248Z\",\"updatedAt\":\"2017-07-30T21:01:13.873Z\",\"blogPostId\":3,\"id\":7}",
+      "8": "{\"message\":{\"data\":\"Corrupti voluptates asperiores ratione laudantium, eveniet molestiae possimus deleniti officia, incidunt quae et. Amet, ducimus eum ipsa reprehenderit ad, et nihil, veritatis ea doloremque ab placeat dolore impedit, quia eius.\"},\"priority\":4,\"createdAt\":\"2017-07-30T20:57:51.248Z\",\"updatedAt\":\"2017-07-30T21:01:40.424Z\",\"blogPostId\":3,\"id\":8}"
+    }
+  }
+}
