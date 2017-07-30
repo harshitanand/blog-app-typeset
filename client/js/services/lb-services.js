@@ -62,55 +62,55 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
           { 'id': '@id' },
           {
 
-            // INTERNAL. Use BlogPost.contents.findById() instead.
-            "prototype$__findById__contents": {
+            // INTERNAL. Use BlogPost.postContents.findById() instead.
+            "prototype$__findById__postContents": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/BlogPosts/:id/contents/:fk",
+              url: urlBase + "/BlogPosts/:id/postContents/:fk",
               method: "GET",
             },
 
-            // INTERNAL. Use BlogPost.contents.destroyById() instead.
-            "prototype$__destroyById__contents": {
+            // INTERNAL. Use BlogPost.postContents.destroyById() instead.
+            "prototype$__destroyById__postContents": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/BlogPosts/:id/contents/:fk",
+              url: urlBase + "/BlogPosts/:id/postContents/:fk",
               method: "DELETE",
             },
 
-            // INTERNAL. Use BlogPost.contents.updateById() instead.
-            "prototype$__updateById__contents": {
+            // INTERNAL. Use BlogPost.postContents.updateById() instead.
+            "prototype$__updateById__postContents": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/BlogPosts/:id/contents/:fk",
+              url: urlBase + "/BlogPosts/:id/postContents/:fk",
               method: "PUT",
             },
 
-            // INTERNAL. Use BlogPost.contents() instead.
-            "prototype$__get__contents": {
+            // INTERNAL. Use BlogPost.postContents() instead.
+            "prototype$__get__postContents": {
               isArray: true,
-              url: urlBase + "/BlogPosts/:id/contents",
+              url: urlBase + "/BlogPosts/:id/postContents",
               method: "GET",
             },
 
-            // INTERNAL. Use BlogPost.contents.create() instead.
-            "prototype$__create__contents": {
-              url: urlBase + "/BlogPosts/:id/contents",
+            // INTERNAL. Use BlogPost.postContents.create() instead.
+            "prototype$__create__postContents": {
+              url: urlBase + "/BlogPosts/:id/postContents",
               method: "POST",
             },
 
-            // INTERNAL. Use BlogPost.contents.destroyAll() instead.
-            "prototype$__delete__contents": {
-              url: urlBase + "/BlogPosts/:id/contents",
+            // INTERNAL. Use BlogPost.postContents.destroyAll() instead.
+            "prototype$__delete__postContents": {
+              url: urlBase + "/BlogPosts/:id/postContents",
               method: "DELETE",
             },
 
-            // INTERNAL. Use BlogPost.contents.count() instead.
-            "prototype$__count__contents": {
-              url: urlBase + "/BlogPosts/:id/contents/count",
+            // INTERNAL. Use BlogPost.postContents.count() instead.
+            "prototype$__count__postContents": {
+              url: urlBase + "/BlogPosts/:id/postContents/count",
               method: "GET",
             },
 
@@ -673,7 +673,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogPost#getById
+             * @name lbServices.BlogPost#getPostById
              * @methodOf lbServices.BlogPost
              *
              * @description
@@ -701,8 +701,8 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `BlogPost` object.)
              * </em>
              */
-            "getById": {
-              url: urlBase + "/BlogPosts/getById/:id",
+            "getPostById": {
+              url: urlBase + "/BlogPosts/getPostById/:id",
               method: "GET",
             },
 
@@ -719,8 +719,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @param {Object=} parameters Request parameters.
              *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
+             *  - `skip` – `{number}` -
+             *
+             *  - `limit` – `{number}` -
              *
              * @param {function(Array.<Object>,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -743,9 +744,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "GET",
             },
 
-            // INTERNAL. Use BlogContent.posts() instead.
-            "::get::BlogContent::posts": {
-              url: urlBase + "/BlogContents/:id/posts",
+            // INTERNAL. Use PostContent.blogPost() instead.
+            "::get::PostContent::blogPost": {
+              url: urlBase + "/PostContents/:id/blogPost",
               method: "GET",
             },
           }
@@ -999,27 +1000,27 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
     /**
      * @ngdoc object
-     * @name lbServices.BlogPost.contents
-     * @header lbServices.BlogPost.contents
+     * @name lbServices.BlogPost.postContents
+     * @header lbServices.BlogPost.postContents
      * @object
      * @description
      *
-     * The object `BlogPost.contents` groups methods
-     * manipulating `BlogContent` instances related to `BlogPost`.
+     * The object `BlogPost.postContents` groups methods
+     * manipulating `PostContent` instances related to `BlogPost`.
      *
-     * Call {@link lbServices.BlogPost#contents BlogPost.contents()}
+     * Call {@link lbServices.BlogPost#postContents BlogPost.postContents()}
      * to query all related instances.
      */
 
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogPost#contents
+             * @name lbServices.BlogPost#postContents
              * @methodOf lbServices.BlogPost
              *
              * @description
              *
-             * Queries contents of BlogPost.
+             * Queries postContents of BlogPost.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -1043,23 +1044,23 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BlogContent` object.)
+             * This usually means the response is a `PostContent` object.)
              * </em>
              */
-        R.contents = function() {
-          var TargetResource = $injector.get("BlogContent");
-          var action = TargetResource["::get::BlogPost::contents"];
+        R.postContents = function() {
+          var TargetResource = $injector.get("PostContent");
+          var action = TargetResource["::get::BlogPost::postContents"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogPost.contents#count
-             * @methodOf lbServices.BlogPost.contents
+             * @name lbServices.BlogPost.postContents#count
+             * @methodOf lbServices.BlogPost.postContents
              *
              * @description
              *
-             * Counts contents of BlogPost.
+             * Counts postContents of BlogPost.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -1085,20 +1086,20 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              *  - `count` – `{number=}` -
              */
-        R.contents.count = function() {
-          var TargetResource = $injector.get("BlogContent");
-          var action = TargetResource["::count::BlogPost::contents"];
+        R.postContents.count = function() {
+          var TargetResource = $injector.get("PostContent");
+          var action = TargetResource["::count::BlogPost::postContents"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogPost.contents#create
-             * @methodOf lbServices.BlogPost.contents
+             * @name lbServices.BlogPost.postContents#create
+             * @methodOf lbServices.BlogPost.postContents
              *
              * @description
              *
-             * Creates a new instance in contents of this model.
+             * Creates a new instance in postContents of this model.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -1124,23 +1125,23 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BlogContent` object.)
+             * This usually means the response is a `PostContent` object.)
              * </em>
              */
-        R.contents.create = function() {
-          var TargetResource = $injector.get("BlogContent");
-          var action = TargetResource["::create::BlogPost::contents"];
+        R.postContents.create = function() {
+          var TargetResource = $injector.get("PostContent");
+          var action = TargetResource["::create::BlogPost::postContents"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogPost.contents#createMany
-             * @methodOf lbServices.BlogPost.contents
+             * @name lbServices.BlogPost.postContents#createMany
+             * @methodOf lbServices.BlogPost.postContents
              *
              * @description
              *
-             * Creates a new instance in contents of this model.
+             * Creates a new instance in postContents of this model.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -1166,23 +1167,23 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BlogContent` object.)
+             * This usually means the response is a `PostContent` object.)
              * </em>
              */
-        R.contents.createMany = function() {
-          var TargetResource = $injector.get("BlogContent");
-          var action = TargetResource["::createMany::BlogPost::contents"];
+        R.postContents.createMany = function() {
+          var TargetResource = $injector.get("PostContent");
+          var action = TargetResource["::createMany::BlogPost::postContents"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogPost.contents#destroyAll
-             * @methodOf lbServices.BlogPost.contents
+             * @name lbServices.BlogPost.postContents#destroyAll
+             * @methodOf lbServices.BlogPost.postContents
              *
              * @description
              *
-             * Deletes all contents of this model.
+             * Deletes all postContents of this model.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -1206,20 +1207,20 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * This method returns no data.
              */
-        R.contents.destroyAll = function() {
-          var TargetResource = $injector.get("BlogContent");
-          var action = TargetResource["::delete::BlogPost::contents"];
+        R.postContents.destroyAll = function() {
+          var TargetResource = $injector.get("PostContent");
+          var action = TargetResource["::delete::BlogPost::postContents"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogPost.contents#destroyById
-             * @methodOf lbServices.BlogPost.contents
+             * @name lbServices.BlogPost.postContents#destroyById
+             * @methodOf lbServices.BlogPost.postContents
              *
              * @description
              *
-             * Delete a related item by id for contents.
+             * Delete a related item by id for postContents.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -1227,7 +1228,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              *  - `options` – `{object=}` -
              *
-             *  - `fk` – `{*}` - Foreign key for contents
+             *  - `fk` – `{*}` - Foreign key for postContents
              *
              *  - `options` – `{object=}` -
              *
@@ -1243,20 +1244,20 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * This method returns no data.
              */
-        R.contents.destroyById = function() {
-          var TargetResource = $injector.get("BlogContent");
-          var action = TargetResource["::destroyById::BlogPost::contents"];
+        R.postContents.destroyById = function() {
+          var TargetResource = $injector.get("PostContent");
+          var action = TargetResource["::destroyById::BlogPost::postContents"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogPost.contents#findById
-             * @methodOf lbServices.BlogPost.contents
+             * @name lbServices.BlogPost.postContents#findById
+             * @methodOf lbServices.BlogPost.postContents
              *
              * @description
              *
-             * Find a related item by id for contents.
+             * Find a related item by id for postContents.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -1264,7 +1265,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              *  - `options` – `{object=}` -
              *
-             *  - `fk` – `{*}` - Foreign key for contents
+             *  - `fk` – `{*}` - Foreign key for postContents
              *
              *  - `options` – `{object=}` -
              *
@@ -1280,29 +1281,29 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BlogContent` object.)
+             * This usually means the response is a `PostContent` object.)
              * </em>
              */
-        R.contents.findById = function() {
-          var TargetResource = $injector.get("BlogContent");
-          var action = TargetResource["::findById::BlogPost::contents"];
+        R.postContents.findById = function() {
+          var TargetResource = $injector.get("PostContent");
+          var action = TargetResource["::findById::BlogPost::postContents"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogPost.contents#updateById
-             * @methodOf lbServices.BlogPost.contents
+             * @name lbServices.BlogPost.postContents#updateById
+             * @methodOf lbServices.BlogPost.postContents
              *
              * @description
              *
-             * Update a related item by id for contents.
+             * Update a related item by id for postContents.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - BlogPost id
              *
-             *  - `fk` – `{*}` - Foreign key for contents
+             *  - `fk` – `{*}` - Foreign key for postContents
              *
              * @param {Object} postData Request data.
              *
@@ -1324,12 +1325,12 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BlogContent` object.)
+             * This usually means the response is a `PostContent` object.)
              * </em>
              */
-        R.contents.updateById = function() {
-          var TargetResource = $injector.get("BlogContent");
-          var action = TargetResource["::updateById::BlogPost::contents"];
+        R.postContents.updateById = function() {
+          var TargetResource = $injector.get("PostContent");
+          var action = TargetResource["::updateById::BlogPost::postContents"];
           return action.apply(R, arguments);
         };
 
@@ -1339,13 +1340,13 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
 /**
  * @ngdoc object
- * @name lbServices.BlogContent
- * @header lbServices.BlogContent
+ * @name lbServices.PostContent
+ * @header lbServices.PostContent
  * @object
  *
  * @description
  *
- * A $resource object for interacting with the `BlogContent` model.
+ * A $resource object for interacting with the `PostContent` model.
  *
  * ## Example
  *
@@ -1355,77 +1356,77 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
  *
  */
   module.factory(
-    "BlogContent",
+    "PostContent",
     [
       'LoopBackResource', 'LoopBackAuth', '$injector', '$q',
       function(LoopBackResource, LoopBackAuth, $injector, $q) {
         var R = LoopBackResource(
-        urlBase + "/BlogContents/:id",
+        urlBase + "/PostContents/:id",
           { 'id': '@id' },
           {
 
-            // INTERNAL. Use BlogContent.posts() instead.
-            "prototype$__get__posts": {
-              url: urlBase + "/BlogContents/:id/posts",
+            // INTERNAL. Use PostContent.blogPost() instead.
+            "prototype$__get__blogPost": {
+              url: urlBase + "/PostContents/:id/blogPost",
               method: "GET",
             },
 
-            // INTERNAL. Use BlogContent.comments.findById() instead.
-            "prototype$__findById__comments": {
+            // INTERNAL. Use PostContent.contentComments.findById() instead.
+            "prototype$__findById__contentComments": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/BlogContents/:id/comments/:fk",
+              url: urlBase + "/PostContents/:id/contentComments/:fk",
               method: "GET",
             },
 
-            // INTERNAL. Use BlogContent.comments.destroyById() instead.
-            "prototype$__destroyById__comments": {
+            // INTERNAL. Use PostContent.contentComments.destroyById() instead.
+            "prototype$__destroyById__contentComments": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/BlogContents/:id/comments/:fk",
+              url: urlBase + "/PostContents/:id/contentComments/:fk",
               method: "DELETE",
             },
 
-            // INTERNAL. Use BlogContent.comments.updateById() instead.
-            "prototype$__updateById__comments": {
+            // INTERNAL. Use PostContent.contentComments.updateById() instead.
+            "prototype$__updateById__contentComments": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/BlogContents/:id/comments/:fk",
+              url: urlBase + "/PostContents/:id/contentComments/:fk",
               method: "PUT",
             },
 
-            // INTERNAL. Use BlogContent.comments() instead.
-            "prototype$__get__comments": {
+            // INTERNAL. Use PostContent.contentComments() instead.
+            "prototype$__get__contentComments": {
               isArray: true,
-              url: urlBase + "/BlogContents/:id/comments",
+              url: urlBase + "/PostContents/:id/contentComments",
               method: "GET",
             },
 
-            // INTERNAL. Use BlogContent.comments.create() instead.
-            "prototype$__create__comments": {
-              url: urlBase + "/BlogContents/:id/comments",
+            // INTERNAL. Use PostContent.contentComments.create() instead.
+            "prototype$__create__contentComments": {
+              url: urlBase + "/PostContents/:id/contentComments",
               method: "POST",
             },
 
-            // INTERNAL. Use BlogContent.comments.destroyAll() instead.
-            "prototype$__delete__comments": {
-              url: urlBase + "/BlogContents/:id/comments",
+            // INTERNAL. Use PostContent.contentComments.destroyAll() instead.
+            "prototype$__delete__contentComments": {
+              url: urlBase + "/PostContents/:id/contentComments",
               method: "DELETE",
             },
 
-            // INTERNAL. Use BlogContent.comments.count() instead.
-            "prototype$__count__comments": {
-              url: urlBase + "/BlogContents/:id/comments/count",
+            // INTERNAL. Use PostContent.contentComments.count() instead.
+            "prototype$__count__contentComments": {
+              url: urlBase + "/PostContents/:id/contentComments/count",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent#create
-             * @methodOf lbServices.BlogContent
+             * @name lbServices.PostContent#create
+             * @methodOf lbServices.PostContent
              *
              * @description
              *
@@ -1454,18 +1455,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BlogContent` object.)
+             * This usually means the response is a `PostContent` object.)
              * </em>
              */
             "create": {
-              url: urlBase + "/BlogContents",
+              url: urlBase + "/PostContents",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent#createMany
-             * @methodOf lbServices.BlogContent
+             * @name lbServices.PostContent#createMany
+             * @methodOf lbServices.PostContent
              *
              * @description
              *
@@ -1494,19 +1495,19 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BlogContent` object.)
+             * This usually means the response is a `PostContent` object.)
              * </em>
              */
             "createMany": {
               isArray: true,
-              url: urlBase + "/BlogContents",
+              url: urlBase + "/PostContents",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent#patchOrCreate
-             * @methodOf lbServices.BlogContent
+             * @name lbServices.PostContent#patchOrCreate
+             * @methodOf lbServices.PostContent
              *
              * @description
              *
@@ -1530,18 +1531,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BlogContent` object.)
+             * This usually means the response is a `PostContent` object.)
              * </em>
              */
             "patchOrCreate": {
-              url: urlBase + "/BlogContents",
+              url: urlBase + "/PostContents",
               method: "PATCH",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent#replaceOrCreate
-             * @methodOf lbServices.BlogContent
+             * @name lbServices.PostContent#replaceOrCreate
+             * @methodOf lbServices.PostContent
              *
              * @description
              *
@@ -1570,18 +1571,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BlogContent` object.)
+             * This usually means the response is a `PostContent` object.)
              * </em>
              */
             "replaceOrCreate": {
-              url: urlBase + "/BlogContents/replaceOrCreate",
+              url: urlBase + "/PostContents/replaceOrCreate",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent#upsertWithWhere
-             * @methodOf lbServices.BlogContent
+             * @name lbServices.PostContent#upsertWithWhere
+             * @methodOf lbServices.PostContent
              *
              * @description
              *
@@ -1609,18 +1610,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BlogContent` object.)
+             * This usually means the response is a `PostContent` object.)
              * </em>
              */
             "upsertWithWhere": {
-              url: urlBase + "/BlogContents/upsertWithWhere",
+              url: urlBase + "/PostContents/upsertWithWhere",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent#exists
-             * @methodOf lbServices.BlogContent
+             * @name lbServices.PostContent#exists
+             * @methodOf lbServices.PostContent
              *
              * @description
              *
@@ -1647,14 +1648,14 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *  - `exists` – `{boolean=}` -
              */
             "exists": {
-              url: urlBase + "/BlogContents/:id/exists",
+              url: urlBase + "/PostContents/:id/exists",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent#findById
-             * @methodOf lbServices.BlogContent
+             * @name lbServices.PostContent#findById
+             * @methodOf lbServices.PostContent
              *
              * @description
              *
@@ -1680,18 +1681,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BlogContent` object.)
+             * This usually means the response is a `PostContent` object.)
              * </em>
              */
             "findById": {
-              url: urlBase + "/BlogContents/:id",
+              url: urlBase + "/PostContents/:id",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent#replaceById
-             * @methodOf lbServices.BlogContent
+             * @name lbServices.PostContent#replaceById
+             * @methodOf lbServices.PostContent
              *
              * @description
              *
@@ -1719,18 +1720,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BlogContent` object.)
+             * This usually means the response is a `PostContent` object.)
              * </em>
              */
             "replaceById": {
-              url: urlBase + "/BlogContents/:id/replace",
+              url: urlBase + "/PostContents/:id/replace",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent#find
-             * @methodOf lbServices.BlogContent
+             * @name lbServices.PostContent#find
+             * @methodOf lbServices.PostContent
              *
              * @description
              *
@@ -1754,19 +1755,19 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BlogContent` object.)
+             * This usually means the response is a `PostContent` object.)
              * </em>
              */
             "find": {
               isArray: true,
-              url: urlBase + "/BlogContents",
+              url: urlBase + "/PostContents",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent#findOne
-             * @methodOf lbServices.BlogContent
+             * @name lbServices.PostContent#findOne
+             * @methodOf lbServices.PostContent
              *
              * @description
              *
@@ -1790,18 +1791,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BlogContent` object.)
+             * This usually means the response is a `PostContent` object.)
              * </em>
              */
             "findOne": {
-              url: urlBase + "/BlogContents/findOne",
+              url: urlBase + "/PostContents/findOne",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent#updateAll
-             * @methodOf lbServices.BlogContent
+             * @name lbServices.PostContent#updateAll
+             * @methodOf lbServices.PostContent
              *
              * @description
              *
@@ -1830,14 +1831,14 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * Information related to the outcome of the operation
              */
             "updateAll": {
-              url: urlBase + "/BlogContents/update",
+              url: urlBase + "/PostContents/update",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent#deleteById
-             * @methodOf lbServices.BlogContent
+             * @name lbServices.PostContent#deleteById
+             * @methodOf lbServices.PostContent
              *
              * @description
              *
@@ -1861,18 +1862,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BlogContent` object.)
+             * This usually means the response is a `PostContent` object.)
              * </em>
              */
             "deleteById": {
-              url: urlBase + "/BlogContents/:id",
+              url: urlBase + "/PostContents/:id",
               method: "DELETE",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent#count
-             * @methodOf lbServices.BlogContent
+             * @name lbServices.PostContent#count
+             * @methodOf lbServices.PostContent
              *
              * @description
              *
@@ -1899,14 +1900,14 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *  - `count` – `{number=}` -
              */
             "count": {
-              url: urlBase + "/BlogContents/count",
+              url: urlBase + "/PostContents/count",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent#prototype$patchAttributes
-             * @methodOf lbServices.BlogContent
+             * @name lbServices.PostContent#prototype$patchAttributes
+             * @methodOf lbServices.PostContent
              *
              * @description
              *
@@ -1914,7 +1915,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `id` – `{*}` - BlogContent id
+             *  - `id` – `{*}` - PostContent id
              *
              *  - `options` – `{object=}` -
              *
@@ -1934,18 +1935,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BlogContent` object.)
+             * This usually means the response is a `PostContent` object.)
              * </em>
              */
             "prototype$patchAttributes": {
-              url: urlBase + "/BlogContents/:id",
+              url: urlBase + "/PostContents/:id",
               method: "PATCH",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent#createChangeStream
-             * @methodOf lbServices.BlogContent
+             * @name lbServices.PostContent#createChangeStream
+             * @methodOf lbServices.PostContent
              *
              * @description
              *
@@ -1975,66 +1976,72 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *  - `changes` – `{ReadableStream=}` -
              */
             "createChangeStream": {
-              url: urlBase + "/BlogContents/change-stream",
+              url: urlBase + "/PostContents/change-stream",
               method: "POST",
             },
 
-            // INTERNAL. Use BlogPost.contents.findById() instead.
-            "::findById::BlogPost::contents": {
+            // INTERNAL. Use BlogPost.postContents.findById() instead.
+            "::findById::BlogPost::postContents": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/BlogPosts/:id/contents/:fk",
+              url: urlBase + "/BlogPosts/:id/postContents/:fk",
               method: "GET",
             },
 
-            // INTERNAL. Use BlogPost.contents.destroyById() instead.
-            "::destroyById::BlogPost::contents": {
+            // INTERNAL. Use BlogPost.postContents.destroyById() instead.
+            "::destroyById::BlogPost::postContents": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/BlogPosts/:id/contents/:fk",
+              url: urlBase + "/BlogPosts/:id/postContents/:fk",
               method: "DELETE",
             },
 
-            // INTERNAL. Use BlogPost.contents.updateById() instead.
-            "::updateById::BlogPost::contents": {
+            // INTERNAL. Use BlogPost.postContents.updateById() instead.
+            "::updateById::BlogPost::postContents": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/BlogPosts/:id/contents/:fk",
+              url: urlBase + "/BlogPosts/:id/postContents/:fk",
               method: "PUT",
             },
 
-            // INTERNAL. Use BlogPost.contents() instead.
-            "::get::BlogPost::contents": {
+            // INTERNAL. Use BlogPost.postContents() instead.
+            "::get::BlogPost::postContents": {
               isArray: true,
-              url: urlBase + "/BlogPosts/:id/contents",
+              url: urlBase + "/BlogPosts/:id/postContents",
               method: "GET",
             },
 
-            // INTERNAL. Use BlogPost.contents.create() instead.
-            "::create::BlogPost::contents": {
-              url: urlBase + "/BlogPosts/:id/contents",
+            // INTERNAL. Use BlogPost.postContents.create() instead.
+            "::create::BlogPost::postContents": {
+              url: urlBase + "/BlogPosts/:id/postContents",
               method: "POST",
             },
 
-            // INTERNAL. Use BlogPost.contents.createMany() instead.
-            "::createMany::BlogPost::contents": {
+            // INTERNAL. Use BlogPost.postContents.createMany() instead.
+            "::createMany::BlogPost::postContents": {
               isArray: true,
-              url: urlBase + "/BlogPosts/:id/contents",
+              url: urlBase + "/BlogPosts/:id/postContents",
               method: "POST",
             },
 
-            // INTERNAL. Use BlogPost.contents.destroyAll() instead.
-            "::delete::BlogPost::contents": {
-              url: urlBase + "/BlogPosts/:id/contents",
+            // INTERNAL. Use BlogPost.postContents.destroyAll() instead.
+            "::delete::BlogPost::postContents": {
+              url: urlBase + "/BlogPosts/:id/postContents",
               method: "DELETE",
             },
 
-            // INTERNAL. Use BlogPost.contents.count() instead.
-            "::count::BlogPost::contents": {
-              url: urlBase + "/BlogPosts/:id/contents/count",
+            // INTERNAL. Use BlogPost.postContents.count() instead.
+            "::count::BlogPost::postContents": {
+              url: urlBase + "/BlogPosts/:id/postContents/count",
+              method: "GET",
+            },
+
+            // INTERNAL. Use ContentComment.postContent() instead.
+            "::get::ContentComment::postContent": {
+              url: urlBase + "/ContentComments/:id/postContent",
               method: "GET",
             },
           }
@@ -2044,8 +2051,8 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent#upsert
-             * @methodOf lbServices.BlogContent
+             * @name lbServices.PostContent#upsert
+             * @methodOf lbServices.PostContent
              *
              * @description
              *
@@ -2069,15 +2076,15 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BlogContent` object.)
+             * This usually means the response is a `PostContent` object.)
              * </em>
              */
         R["upsert"] = R["patchOrCreate"];
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent#updateOrCreate
-             * @methodOf lbServices.BlogContent
+             * @name lbServices.PostContent#updateOrCreate
+             * @methodOf lbServices.PostContent
              *
              * @description
              *
@@ -2101,15 +2108,15 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BlogContent` object.)
+             * This usually means the response is a `PostContent` object.)
              * </em>
              */
         R["updateOrCreate"] = R["patchOrCreate"];
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent#patchOrCreateWithWhere
-             * @methodOf lbServices.BlogContent
+             * @name lbServices.PostContent#patchOrCreateWithWhere
+             * @methodOf lbServices.PostContent
              *
              * @description
              *
@@ -2137,15 +2144,15 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BlogContent` object.)
+             * This usually means the response is a `PostContent` object.)
              * </em>
              */
         R["patchOrCreateWithWhere"] = R["upsertWithWhere"];
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent#update
-             * @methodOf lbServices.BlogContent
+             * @name lbServices.PostContent#update
+             * @methodOf lbServices.PostContent
              *
              * @description
              *
@@ -2177,8 +2184,8 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent#destroyById
-             * @methodOf lbServices.BlogContent
+             * @name lbServices.PostContent#destroyById
+             * @methodOf lbServices.PostContent
              *
              * @description
              *
@@ -2202,15 +2209,15 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BlogContent` object.)
+             * This usually means the response is a `PostContent` object.)
              * </em>
              */
         R["destroyById"] = R["deleteById"];
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent#removeById
-             * @methodOf lbServices.BlogContent
+             * @name lbServices.PostContent#removeById
+             * @methodOf lbServices.PostContent
              *
              * @description
              *
@@ -2234,15 +2241,15 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BlogContent` object.)
+             * This usually means the response is a `PostContent` object.)
              * </em>
              */
         R["removeById"] = R["deleteById"];
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent#updateAttributes
-             * @methodOf lbServices.BlogContent
+             * @name lbServices.PostContent#updateAttributes
+             * @methodOf lbServices.PostContent
              *
              * @description
              *
@@ -2250,7 +2257,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `id` – `{*}` - BlogContent id
+             *  - `id` – `{*}` - PostContent id
              *
              *  - `options` – `{object=}` -
              *
@@ -2270,7 +2277,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BlogContent` object.)
+             * This usually means the response is a `PostContent` object.)
              * </em>
              */
         R["updateAttributes"] = R["prototype$patchAttributes"];
@@ -2278,27 +2285,27 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
         /**
         * @ngdoc property
-        * @name lbServices.BlogContent#modelName
-        * @propertyOf lbServices.BlogContent
+        * @name lbServices.PostContent#modelName
+        * @propertyOf lbServices.PostContent
         * @description
         * The name of the model represented by this $resource,
-        * i.e. `BlogContent`.
+        * i.e. `PostContent`.
         */
-        R.modelName = "BlogContent";
+        R.modelName = "PostContent";
 
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent#posts
-             * @methodOf lbServices.BlogContent
+             * @name lbServices.PostContent#blogPost
+             * @methodOf lbServices.PostContent
              *
              * @description
              *
-             * Fetches belongsTo relation posts.
+             * Fetches belongsTo relation blogPost.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `id` – `{*}` - BlogContent id
+             *  - `id` – `{*}` - PostContent id
              *
              *  - `options` – `{object=}` -
              *
@@ -2321,38 +2328,38 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `BlogPost` object.)
              * </em>
              */
-        R.posts = function() {
+        R.blogPost = function() {
           var TargetResource = $injector.get("BlogPost");
-          var action = TargetResource["::get::BlogContent::posts"];
+          var action = TargetResource["::get::PostContent::blogPost"];
           return action.apply(R, arguments);
         };
     /**
      * @ngdoc object
-     * @name lbServices.BlogContent.comments
-     * @header lbServices.BlogContent.comments
+     * @name lbServices.PostContent.contentComments
+     * @header lbServices.PostContent.contentComments
      * @object
      * @description
      *
-     * The object `BlogContent.comments` groups methods
-     * manipulating `ContentComment` instances related to `BlogContent`.
+     * The object `PostContent.contentComments` groups methods
+     * manipulating `ContentComment` instances related to `PostContent`.
      *
-     * Call {@link lbServices.BlogContent#comments BlogContent.comments()}
+     * Call {@link lbServices.PostContent#contentComments PostContent.contentComments()}
      * to query all related instances.
      */
 
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent#comments
-             * @methodOf lbServices.BlogContent
+             * @name lbServices.PostContent#contentComments
+             * @methodOf lbServices.PostContent
              *
              * @description
              *
-             * Queries comments of BlogContent.
+             * Queries contentComments of PostContent.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `id` – `{*}` - BlogContent id
+             *  - `id` – `{*}` - PostContent id
              *
              *  - `options` – `{object=}` -
              *
@@ -2375,24 +2382,24 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `ContentComment` object.)
              * </em>
              */
-        R.comments = function() {
+        R.contentComments = function() {
           var TargetResource = $injector.get("ContentComment");
-          var action = TargetResource["::get::BlogContent::comments"];
+          var action = TargetResource["::get::PostContent::contentComments"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent.comments#count
-             * @methodOf lbServices.BlogContent.comments
+             * @name lbServices.PostContent.contentComments#count
+             * @methodOf lbServices.PostContent.contentComments
              *
              * @description
              *
-             * Counts comments of BlogContent.
+             * Counts contentComments of PostContent.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `id` – `{*}` - BlogContent id
+             *  - `id` – `{*}` - PostContent id
              *
              *  - `options` – `{object=}` -
              *
@@ -2414,24 +2421,24 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              *  - `count` – `{number=}` -
              */
-        R.comments.count = function() {
+        R.contentComments.count = function() {
           var TargetResource = $injector.get("ContentComment");
-          var action = TargetResource["::count::BlogContent::comments"];
+          var action = TargetResource["::count::PostContent::contentComments"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent.comments#create
-             * @methodOf lbServices.BlogContent.comments
+             * @name lbServices.PostContent.contentComments#create
+             * @methodOf lbServices.PostContent.contentComments
              *
              * @description
              *
-             * Creates a new instance in comments of this model.
+             * Creates a new instance in contentComments of this model.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `id` – `{*}` - BlogContent id
+             *  - `id` – `{*}` - PostContent id
              *
              * @param {Object} postData Request data.
              *
@@ -2456,24 +2463,24 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `ContentComment` object.)
              * </em>
              */
-        R.comments.create = function() {
+        R.contentComments.create = function() {
           var TargetResource = $injector.get("ContentComment");
-          var action = TargetResource["::create::BlogContent::comments"];
+          var action = TargetResource["::create::PostContent::contentComments"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent.comments#createMany
-             * @methodOf lbServices.BlogContent.comments
+             * @name lbServices.PostContent.contentComments#createMany
+             * @methodOf lbServices.PostContent.contentComments
              *
              * @description
              *
-             * Creates a new instance in comments of this model.
+             * Creates a new instance in contentComments of this model.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `id` – `{*}` - BlogContent id
+             *  - `id` – `{*}` - PostContent id
              *
              * @param {Object} postData Request data.
              *
@@ -2498,24 +2505,24 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `ContentComment` object.)
              * </em>
              */
-        R.comments.createMany = function() {
+        R.contentComments.createMany = function() {
           var TargetResource = $injector.get("ContentComment");
-          var action = TargetResource["::createMany::BlogContent::comments"];
+          var action = TargetResource["::createMany::PostContent::contentComments"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent.comments#destroyAll
-             * @methodOf lbServices.BlogContent.comments
+             * @name lbServices.PostContent.contentComments#destroyAll
+             * @methodOf lbServices.PostContent.contentComments
              *
              * @description
              *
-             * Deletes all comments of this model.
+             * Deletes all contentComments of this model.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `id` – `{*}` - BlogContent id
+             *  - `id` – `{*}` - PostContent id
              *
              *  - `options` – `{object=}` -
              *
@@ -2535,28 +2542,28 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * This method returns no data.
              */
-        R.comments.destroyAll = function() {
+        R.contentComments.destroyAll = function() {
           var TargetResource = $injector.get("ContentComment");
-          var action = TargetResource["::delete::BlogContent::comments"];
+          var action = TargetResource["::delete::PostContent::contentComments"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent.comments#destroyById
-             * @methodOf lbServices.BlogContent.comments
+             * @name lbServices.PostContent.contentComments#destroyById
+             * @methodOf lbServices.PostContent.contentComments
              *
              * @description
              *
-             * Delete a related item by id for comments.
+             * Delete a related item by id for contentComments.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `id` – `{*}` - BlogContent id
+             *  - `id` – `{*}` - PostContent id
              *
              *  - `options` – `{object=}` -
              *
-             *  - `fk` – `{*}` - Foreign key for comments
+             *  - `fk` – `{*}` - Foreign key for contentComments
              *
              *  - `options` – `{object=}` -
              *
@@ -2572,28 +2579,28 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * This method returns no data.
              */
-        R.comments.destroyById = function() {
+        R.contentComments.destroyById = function() {
           var TargetResource = $injector.get("ContentComment");
-          var action = TargetResource["::destroyById::BlogContent::comments"];
+          var action = TargetResource["::destroyById::PostContent::contentComments"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent.comments#findById
-             * @methodOf lbServices.BlogContent.comments
+             * @name lbServices.PostContent.contentComments#findById
+             * @methodOf lbServices.PostContent.contentComments
              *
              * @description
              *
-             * Find a related item by id for comments.
+             * Find a related item by id for contentComments.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `id` – `{*}` - BlogContent id
+             *  - `id` – `{*}` - PostContent id
              *
              *  - `options` – `{object=}` -
              *
-             *  - `fk` – `{*}` - Foreign key for comments
+             *  - `fk` – `{*}` - Foreign key for contentComments
              *
              *  - `options` – `{object=}` -
              *
@@ -2612,26 +2619,26 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `ContentComment` object.)
              * </em>
              */
-        R.comments.findById = function() {
+        R.contentComments.findById = function() {
           var TargetResource = $injector.get("ContentComment");
-          var action = TargetResource["::findById::BlogContent::comments"];
+          var action = TargetResource["::findById::PostContent::contentComments"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.BlogContent.comments#updateById
-             * @methodOf lbServices.BlogContent.comments
+             * @name lbServices.PostContent.contentComments#updateById
+             * @methodOf lbServices.PostContent.contentComments
              *
              * @description
              *
-             * Update a related item by id for comments.
+             * Update a related item by id for contentComments.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `id` – `{*}` - BlogContent id
+             *  - `id` – `{*}` - PostContent id
              *
-             *  - `fk` – `{*}` - Foreign key for comments
+             *  - `fk` – `{*}` - Foreign key for contentComments
              *
              * @param {Object} postData Request data.
              *
@@ -2656,9 +2663,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `ContentComment` object.)
              * </em>
              */
-        R.comments.updateById = function() {
+        R.contentComments.updateById = function() {
           var TargetResource = $injector.get("ContentComment");
-          var action = TargetResource["::updateById::BlogContent::comments"];
+          var action = TargetResource["::updateById::PostContent::contentComments"];
           return action.apply(R, arguments);
         };
 
@@ -2692,6 +2699,12 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         urlBase + "/ContentComments/:id",
           { 'id': '@id' },
           {
+
+            // INTERNAL. Use ContentComment.postContent() instead.
+            "prototype$__get__postContent": {
+              url: urlBase + "/ContentComments/:id/postContent",
+              method: "GET",
+            },
 
             /**
              * @ngdoc method
@@ -3250,62 +3263,62 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "POST",
             },
 
-            // INTERNAL. Use BlogContent.comments.findById() instead.
-            "::findById::BlogContent::comments": {
+            // INTERNAL. Use PostContent.contentComments.findById() instead.
+            "::findById::PostContent::contentComments": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/BlogContents/:id/comments/:fk",
+              url: urlBase + "/PostContents/:id/contentComments/:fk",
               method: "GET",
             },
 
-            // INTERNAL. Use BlogContent.comments.destroyById() instead.
-            "::destroyById::BlogContent::comments": {
+            // INTERNAL. Use PostContent.contentComments.destroyById() instead.
+            "::destroyById::PostContent::contentComments": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/BlogContents/:id/comments/:fk",
+              url: urlBase + "/PostContents/:id/contentComments/:fk",
               method: "DELETE",
             },
 
-            // INTERNAL. Use BlogContent.comments.updateById() instead.
-            "::updateById::BlogContent::comments": {
+            // INTERNAL. Use PostContent.contentComments.updateById() instead.
+            "::updateById::PostContent::contentComments": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/BlogContents/:id/comments/:fk",
+              url: urlBase + "/PostContents/:id/contentComments/:fk",
               method: "PUT",
             },
 
-            // INTERNAL. Use BlogContent.comments() instead.
-            "::get::BlogContent::comments": {
+            // INTERNAL. Use PostContent.contentComments() instead.
+            "::get::PostContent::contentComments": {
               isArray: true,
-              url: urlBase + "/BlogContents/:id/comments",
+              url: urlBase + "/PostContents/:id/contentComments",
               method: "GET",
             },
 
-            // INTERNAL. Use BlogContent.comments.create() instead.
-            "::create::BlogContent::comments": {
-              url: urlBase + "/BlogContents/:id/comments",
+            // INTERNAL. Use PostContent.contentComments.create() instead.
+            "::create::PostContent::contentComments": {
+              url: urlBase + "/PostContents/:id/contentComments",
               method: "POST",
             },
 
-            // INTERNAL. Use BlogContent.comments.createMany() instead.
-            "::createMany::BlogContent::comments": {
+            // INTERNAL. Use PostContent.contentComments.createMany() instead.
+            "::createMany::PostContent::contentComments": {
               isArray: true,
-              url: urlBase + "/BlogContents/:id/comments",
+              url: urlBase + "/PostContents/:id/contentComments",
               method: "POST",
             },
 
-            // INTERNAL. Use BlogContent.comments.destroyAll() instead.
-            "::delete::BlogContent::comments": {
-              url: urlBase + "/BlogContents/:id/comments",
+            // INTERNAL. Use PostContent.contentComments.destroyAll() instead.
+            "::delete::PostContent::contentComments": {
+              url: urlBase + "/PostContents/:id/contentComments",
               method: "DELETE",
             },
 
-            // INTERNAL. Use BlogContent.comments.count() instead.
-            "::count::BlogContent::comments": {
-              url: urlBase + "/BlogContents/:id/comments/count",
+            // INTERNAL. Use PostContent.contentComments.count() instead.
+            "::count::PostContent::contentComments": {
+              url: urlBase + "/PostContents/:id/contentComments/count",
               method: "GET",
             },
           }
@@ -3557,6 +3570,46 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         */
         R.modelName = "ContentComment";
 
+
+            /**
+             * @ngdoc method
+             * @name lbServices.ContentComment#postContent
+             * @methodOf lbServices.ContentComment
+             *
+             * @description
+             *
+             * Fetches belongsTo relation postContent.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - ContentComment id
+             *
+             *  - `options` – `{object=}` -
+             *
+             *  - `refresh` – `{boolean=}` -
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `PostContent` object.)
+             * </em>
+             */
+        R.postContent = function() {
+          var TargetResource = $injector.get("PostContent");
+          var action = TargetResource["::get::ContentComment::postContent"];
+          return action.apply(R, arguments);
+        };
 
 
         return R;

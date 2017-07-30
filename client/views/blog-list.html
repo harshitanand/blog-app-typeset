@@ -4,8 +4,6 @@
     <br>
     <li ng-repeat="post in posts" class="col-s-4" ng-class="{ 'reset-s' : $index%3==0 }" ng-click="changeState(post.id)">
       <h3>{{post.title}}</h3>
-      <p>{{post.contents[1].message.data | limitTo:120}}...</p>
-      <p class="fa fa-comment push-left"> {{post.contents[0].comments.length}}</p>
     </li>
   </ul>
 </div>
