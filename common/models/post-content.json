@@ -1,0 +1,35 @@
+{
+  "name": "PostContent",
+  "plural": "PostContents",
+  "base": "GenericModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "message": {
+      "type": "object",
+      "required": true
+    },
+    "priority": {
+      "type": "number",
+      "required": true,
+      "default": 1
+    }
+  },
+  "validations": [],
+  "relations": {
+    "blogPost": {
+      "type": "belongsTo",
+      "model": "BlogPost",
+      "foreignKey": "blogPostId"
+    },
+    "contentComments": {
+      "type": "hasMany",
+      "model": "ContentComment",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
